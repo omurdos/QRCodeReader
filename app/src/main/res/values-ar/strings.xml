@@ -13,4 +13,7 @@
     <string name="are_you_sure">هل انت متأكد من حذف هذا العنصر</string>
     <string name="search_title">بحث</string>
     <string name="search_hint">بحث</string>
+    <string name="language">اللغة</string>
+    <string name="arabic">العربية</string>
+    <string name="english">English</string>
 </resources>

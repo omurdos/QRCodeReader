@@ -2,8 +2,11 @@ package com.murdos.qrcodereader
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -31,9 +34,18 @@ class MainActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
     private lateinit var mScannerView: ZXingScannerView
     private lateinit var binding: ActivityMainBinding
     private var isFlashOn: Boolean = false
+    private lateinit var preferences: SharedPreferences
+    var languageCode = "en"
+    private lateinit var config: Configuration
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        preferences = getSharedPreferences("qrApp", Context.MODE_PRIVATE)
+        languageCode = preferences.getString("code", "en").toString()
+        config = resources.configuration
+        config.setLocale(Locale(languageCode))
+        resources.updateConfiguration(config, resources.displayMetrics)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        supportActionBar?.title = getString(R.string.app_name)
         ApplicationDataBase.getDatabase(this)
         mScannerView = ZXingScannerView(this)
         binding.contentFrame.addView(mScannerView)
@@ -65,6 +77,23 @@ class MainActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
         when (item.itemId) {
             R.id.option_menu -> {
                 val intent = Intent(this@MainActivity, HistoryActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.languageOption -> {
+
+                when (config.locale) {
+                    Locale("ar") -> {
+                        languageCode = "en"
+                        preferences.edit().putString("code", languageCode).apply()
+                    }
+                    Locale("en") -> {
+                        languageCode = "ar"
+                        preferences.edit().putString("code", languageCode).apply()
+                    }
+                }
+                config.setLocale(Locale(languageCode))
+                resources.updateConfiguration(config, resources.displayMetrics)
+                finish()
                 startActivity(intent)
             }
         }

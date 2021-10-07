@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">قاريء اكواد QR</string>
+    <string name="flash">Flash</string>
+    <string name="more">المزيد</string>
+    <string name="history">السجل</string>
+    <string name="copy">نسخ</string>
+    <string name="share">مشاركة</string>
+    <string name="delete">حذف</string>
+    <string name="textCopied">تم النسخ</string>
+    <string name="ok">حسنا</string>
+    <string name="cancel">الغاء</string>
+    <string name="are_you_sure">هل انت متأكد من حذف هذا العنصر</string>
+    <string name="search_title">بحث</string>
+    <string name="search_hint">بحث</string>
+</resources>

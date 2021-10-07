@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">QR Code Reader</string>
+    <string name="flash">Flash</string>
+    <string name="more">More</string>
+    <string name="history">History</string>
+    <string name="copy">Copy</string>
+    <string name="share">Share</string>
+    <string name="delete">Delete</string>
+    <string name="textCopied">Text Copied</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="are_you_sure">Are you sure you want to remove this item?</string>
+    <string name="search_title">Search</string>
+    <string name="search_hint">search</string>
+</resources>

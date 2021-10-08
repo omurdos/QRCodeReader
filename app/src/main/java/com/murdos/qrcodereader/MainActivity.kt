@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
     private lateinit var binding: ActivityMainBinding
     private var isFlashOn: Boolean = false
     private lateinit var preferences: SharedPreferences
-    var languageCode = "en"
+    var languageCode = "ar"
     private lateinit var config: Configuration
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
